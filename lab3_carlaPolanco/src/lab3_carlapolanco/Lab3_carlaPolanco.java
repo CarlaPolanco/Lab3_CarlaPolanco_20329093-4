@@ -36,7 +36,7 @@ public class Lab3_carlaPolanco {
                 System.out.println("-----------------------\n");
                 opcion2=1;
             }
-            if(respuesta == 2){
+            else if(respuesta == 2){
                 System.out.println("\n-----------------------");
                 System.out.println("   Eligio Registrarse");
                 System.out.println("-----------------------\n");

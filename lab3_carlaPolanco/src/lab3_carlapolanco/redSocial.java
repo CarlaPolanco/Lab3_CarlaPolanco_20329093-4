@@ -10,5 +10,15 @@ package lab3_carlapolanco;
  * @author carla
  */
 public class redSocial {
+    private String NombreRsocial;
+    private ListaUsuarioActivo listaUsuarioActivo;
+    private ListaUsuarios listaUsuarios;
+    private ListaPublicaciones listaPublicaciones;
+    
+    public redSocial(){
+        this.NombreRsocial = 'Failbook';
+        
+    }
+  
     
 }

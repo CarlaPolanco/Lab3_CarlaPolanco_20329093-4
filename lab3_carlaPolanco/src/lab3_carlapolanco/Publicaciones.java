@@ -18,32 +18,37 @@ public class Publicaciones {
     private String tipoP;
     private List<String> fechaP;
     private List<String> usuarioCompartido;
+    private List<String> reacciones;
     
-    public Publicaciones(int id, String autor,String contenido, String tipoP, List fechaP,List usuarioCompartido){
+    public Publicaciones(int id, String autor,String contenido, String tipoP, List fechaP,List usuarioCompartido, List reacciones){
         this.id = id;
         this.autor = autor;
         this.contenido = contenido;
         this.tipoP = tipoP;
         this.fechaP = fechaP;
         this.usuarioCompartido = usuarioCompartido;
+        this.reacciones = reacciones;
     }
     
-    public int getID(){
+    public int getIDP(){
         return(this.id);
     }
-    public String getAutor(){
+    public String getAutorP(){
         return(this.autor);
     }
-    public String getContenido(){
+    public String getContenidoP(){
         return(this.contenido);
     }
     public String getTipoP(){
         return(this.tipoP);
     }
-    public List getFecha(){
+    public List getFechaP(){
         return(this.fechaP);
     }
-    public List getUsuarioCompartido(){
+    public List getUsuarioCompartidoP(){
         return(this.usuarioCompartido);
+    }
+    public List getReaccionesP(){
+        return(this.reacciones);
     }
 }
