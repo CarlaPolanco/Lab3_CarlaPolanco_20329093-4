@@ -18,4 +18,23 @@ public class ListaUsuarios {
     public ListaUsuarios(){
         this.listaUsuarios = new ArrayList <Usuario>();
     }
+    
+    public void agregarUsuario(Usuario newUsuario){
+        this.listaUsuarios.add(newUsuario);
+    }
+    public int tamanioLista(){
+        return(this.listaUsuarios.size());
+    }
+    public int existeUsuario(String Nombre){
+        Usuario user;
+        int i = this.listaUsuarios.size();
+        int j;
+        for(j=0; j<i ; j++){
+            user = this.listaUsuarios.get(j);
+            if(user.getNombre().equals(Nombre)){
+                return (1);
+            }
+        }
+        return (0);           
+    }
 }

@@ -5,6 +5,7 @@
  */
 package lab3_carlapolanco;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,14 +21,14 @@ public class Publicaciones {
     private List<String> usuarioCompartido;
     private List<String> reacciones;
     
-    public Publicaciones(int id, String autor,String contenido, String tipoP, List fechaP,List usuarioCompartido, List reacciones){
+    public Publicaciones(int id, String autor,String contenido, String tipoP){
         this.id = id;
         this.autor = autor;
         this.contenido = contenido;
         this.tipoP = tipoP;
-        this.fechaP = fechaP;
-        this.usuarioCompartido = usuarioCompartido;
-        this.reacciones = reacciones;
+        this.fechaP = new ArrayList<>();
+        this.usuarioCompartido = new ArrayList<>();
+        this.reacciones = new ArrayList<>();
     }
     
     public int getIDP(){

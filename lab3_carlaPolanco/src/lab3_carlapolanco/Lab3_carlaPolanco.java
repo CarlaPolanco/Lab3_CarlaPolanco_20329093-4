@@ -17,7 +17,10 @@ public class Lab3_carlaPolanco {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
- 
+        
+        Funcionalidades failbook = new Funcionalidades();
+        failbook.getredSocial().redSocial();
+        System.out.println(failbook);
         Scanner teclado=new Scanner(System.in); 
         int opcion;
         int opcion2=0;
@@ -40,6 +43,29 @@ public class Lab3_carlaPolanco {
                 System.out.println("\n-----------------------");
                 System.out.println("   Eligio Registrarse");
                 System.out.println("-----------------------\n");
+                
+                int i = 0;
+                while(i!= 1){
+                    System.out.println("Ingrese el nombre se usuario");
+                    Scanner nom = new Scanner(System.in);
+                    String nombre = nom.nextLine();
+                
+                    System.out.println("Ingrese la contraseña: ");
+                    Scanner con = new Scanner(System.in);
+                    String contraseña = con.nextLine();
+                    
+                    if(failbook.getredSocial().verificarUsuario(nombre)==1){
+                        System.out.println("Usuario ya exisente, eliga un nuevo nombre");
+                    }
+                    else{
+                        failbook.register(nombre, contraseña);
+                        System.out.println("Usuario registado con exito!");
+                        i=1;
+                    }
+                }
+                
+                
+                
                 opcion2=1;
             }
             else{
@@ -47,7 +73,7 @@ public class Lab3_carlaPolanco {
             }
         }
         
-        System.out.println(" ### RED SOCIAL: FailBook ###");
+        System.out.println(" ### RED SOCIAL: FailBook");
         System.out.println(" ## Registrado como: User123 ##");
         do{
             System.out.println("Escoja su opcion:");

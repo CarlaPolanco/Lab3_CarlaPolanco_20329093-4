@@ -5,6 +5,8 @@
  */
 package lab3_carlapolanco;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,17 +17,19 @@ public class Usuario {
     private int id;
     private String nombre;
     private String contrasena;
+    private SimpleDateFormat fecha;
     private List<String> publicaciones;
     private List<String> seguidores;
     private List<String> PCcompartidas;
     
-    public Usuario(int id, String nombre,String contrasena, List publicaciones, List seguidores,List PCcompartidas){
+    public Usuario(int id, String nombre,String contrasena){
         this.id = id;
         this.nombre = nombre;
         this.contrasena = contrasena;
-        this.publicaciones = publicaciones;
-        this.seguidores = seguidores;
-        this.PCcompartidas = PCcompartidas;
+        this.fecha = new SimpleDateFormat("dd/MM/yyyy");
+        this.publicaciones = new ArrayList<>();
+        this.seguidores = new ArrayList<>();
+        this.PCcompartidas = new ArrayList<>();
     }
     public int getID(){
         return(this.id);
@@ -45,4 +49,5 @@ public class Usuario {
     public List getPCcompartidas(){
         return(this.PCcompartidas);
     }
+    
 }

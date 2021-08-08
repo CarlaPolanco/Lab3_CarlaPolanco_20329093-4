@@ -17,4 +17,7 @@ public class ListaPublicaciones {
     public ListaPublicaciones(){
         this.listaPublicaciones = new ArrayList <Publicaciones>();
     }
+    public void agregarPublicacion(Publicaciones newPublicacion){
+        this.listaPublicaciones.add(newPublicacion);
+    }
 }
