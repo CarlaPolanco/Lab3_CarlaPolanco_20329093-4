@@ -20,7 +20,6 @@ public class Lab3_carlaPolanco {
         
         Funcionalidades failbook = new Funcionalidades();
         failbook.getredSocial().redSocial();
-        System.out.println(failbook);
         Scanner teclado=new Scanner(System.in); 
         int opcion;
         int opcion2=0;
@@ -37,6 +36,33 @@ public class Lab3_carlaPolanco {
                 System.out.println("\n-----------------------");
                 System.out.println(" Eligio iniciar sesion");
                 System.out.println("-----------------------\n");
+                
+                int k = 0;
+                while(k !=1){
+                    System.out.println("Ingrese el nombre se usuario");
+                    Scanner nom = new Scanner(System.in);
+                    String nombre = nom.nextLine();
+                
+                    System.out.println("Ingrese la contraseña: ");
+                    Scanner con = new Scanner(System.in);
+                    String contraseña = con.nextLine();
+                    
+                    if(failbook.getredSocial().verificarUsuariologin(nombre, contraseña)==1){
+                        
+                        failbook.login(nombre, contraseña);
+                        k=1;
+                        System.out.println("**********************************");
+                        System.out.println("  Sesion iniciada correctamente");
+                        System.out.println("**********************************");
+                        
+                    }
+                    else{
+                        System.out.println("Datos incorrectos,vuelva a escribirlos");
+                    }
+                }
+                
+                
+                
                 opcion2=1;
             }
             else if(respuesta == 2){
@@ -59,7 +85,9 @@ public class Lab3_carlaPolanco {
                     }
                     else{
                         failbook.register(nombre, contraseña);
-                        System.out.println("Usuario registado con exito!");
+                        System.out.println("********************************");
+                        System.out.println(" Usuario registado con exito!");
+                        System.out.println("********************************");
                         i=1;
                     }
                 }

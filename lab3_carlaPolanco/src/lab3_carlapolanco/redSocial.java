@@ -6,7 +6,6 @@
 package lab3_carlapolanco;
 
 import java.util.List;
-import java.util.ArrayList;
 
 /**
  *
@@ -14,13 +13,13 @@ import java.util.ArrayList;
  */
 public class redSocial {
     private String NombreRsocial;
-    private ListaUsuarioActivo listaUsuarioActivo;
+    private Usuario listaUsuarioActivo;
     private ListaUsuarios listaUsuarios;
     private ListaPublicaciones listaPublicaciones;
     
     public redSocial(){
         this.NombreRsocial = "Failbook";
-        this.listaUsuarioActivo = new ListaUsuarioActivo();
+        this.listaUsuarioActivo = null;
         this.listaUsuarios = new ListaUsuarios();
         this.listaPublicaciones = new ListaPublicaciones();
     }
@@ -50,6 +49,19 @@ public class redSocial {
         else{
             return(0);
         }
+    }
+    
+    public int verificarUsuariologin(String username, String pass){
+        if(this.listaUsuarios.existeUsuarioLogin(username, pass) == 1){
+            return(1);
+        }
+        else{
+            return(0);
+        }
+    }
+    
+    public void iniciarsesion(String username,String pass){
+        this.listaUsuarioActivo =  this.listaUsuarios.datosUsuario(username, pass); 
     }
     
     public void redSocial(){

@@ -20,10 +20,7 @@ public class Funcionalidades {
         return(this.socialRed);
     }
     
-    /**
-     * 
-     * @param nombre pertenece al nombre del usuario
-     * @param contra pertenece la contrasena del usuario 
+    /*
      * Crea el usuario para registarlo 
      */
     public void register(String username,String pass){
@@ -32,5 +29,11 @@ public class Funcionalidades {
         tamanio = socialRed.getTamanioUsuarios();
         userN = new Usuario(tamanio+1,username,pass);
         socialRed.registar(userN);
+    }
+    
+    public void login(String username, String pass){
+        if(socialRed.getListaUsuarioActivo()==null){
+            socialRed.iniciarsesion(username, pass);
+        }
     }
 }
