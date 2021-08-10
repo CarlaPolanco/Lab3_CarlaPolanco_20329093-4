@@ -6,6 +6,7 @@
 package lab3_carlapolanco;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ public class Publicaciones {
     private String autor;
     private String contenido;
     private String tipoP;
-    private List<String> fechaP;
+    private Date fechaP;
     private List<String> usuarioCompartido;
     private List<String> reacciones;
     
@@ -26,7 +27,7 @@ public class Publicaciones {
         this.autor = autor;
         this.contenido = contenido;
         this.tipoP = tipoP;
-        this.fechaP = new ArrayList<>();
+        this.fechaP =  new Date();
         this.usuarioCompartido = new ArrayList<>();
         this.reacciones = new ArrayList<>();
     }
@@ -43,7 +44,7 @@ public class Publicaciones {
     public String getTipoP(){
         return(this.tipoP);
     }
-    public List getFechaP(){
+    public Date getFechaP(){
         return(this.fechaP);
     }
     public List getUsuarioCompartidoP(){
@@ -52,4 +53,10 @@ public class Publicaciones {
     public List getReaccionesP(){
         return(this.reacciones);
     }
+
+    public String PublicacionestoString() {
+        return "ID: " + id + " AUTOR: " + autor + " CONTENIDO: " + contenido + " TIPO: " + tipoP + " FECHA: " + fechaP + " COMPARTIDO" + usuarioCompartido + " REACCIONES: " + reacciones + '\n';
+    }
+    
+    
 }

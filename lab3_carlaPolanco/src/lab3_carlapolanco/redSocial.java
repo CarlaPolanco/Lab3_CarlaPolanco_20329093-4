@@ -24,18 +24,27 @@ public class redSocial {
         this.listaPublicaciones = new ListaPublicaciones();
     }
     
-    public String getNombreRS(){
-        return (this.NombreRsocial);
+    public Usuario getListaUsuarioActivo(){
+        return listaUsuarioActivo;
     }
-    public List getListaUsuarioActivo(){
-        return(List) (this.listaUsuarioActivo);
+
+    public String getNombreRsocial() {
+        return NombreRsocial;
     }
-    public List getListaUsuario(){
-        return(List) (this.listaUsuarios);
+
+    public ListaUsuarios getListaUsuarios() {
+        return listaUsuarios;
     }
-    public List getListaPublicacionesS(){
-        return(List) (this.listaPublicaciones);
+
+    public ListaPublicaciones getListaPublicaciones() {
+        return listaPublicaciones;
     }
+    public void exit(){
+        this.listaUsuarioActivo = null;
+    }
+    
+    
+    
     public int getTamanioUsuarios(){
         return(this.listaUsuarios.tamanioLista());
     }
@@ -64,17 +73,32 @@ public class redSocial {
         this.listaUsuarioActivo =  this.listaUsuarios.datosUsuario(username, pass); 
     }
     
+    public String ToStringRedSocialUsuarios(){
+        String string;
+        string = this.listaUsuarios.setListaUsuariosString();
+        return string;
+        
+    }
+    public String ToStringRedSocialPublicaciones(){
+        String string;
+        string = this.listaPublicaciones.setListaPublicacionesString();
+        return string;
+    }
+    
+    
+    
+    
     public void redSocial(){
         
         Usuario user1 = new Usuario(1,"user1","pass1");
         this.listaUsuarios.agregarUsuario(user1);
-        Usuario user2 = new Usuario(1,"user2","pass2");
+        Usuario user2 = new Usuario(2,"user2","pass2");
         this.listaUsuarios.agregarUsuario(user2);
-        Usuario user3 = new Usuario(1,"user3","pass3");
+        Usuario user3 = new Usuario(3,"user3","pass3");
         this.listaUsuarios.agregarUsuario(user3);
-        Usuario user4 = new Usuario(1,"user4","pass4");
+        Usuario user4 = new Usuario(4,"user4","pass4");
         this.listaUsuarios.agregarUsuario(user4);
-        Usuario user5 = new Usuario(1,"user5","pass5");
+        Usuario user5 = new Usuario(5,"user5","pass5");
         this.listaUsuarios.agregarUsuario(user5);
         
         Publicaciones post1 = new Publicaciones(1,"user1","Esta es una prueba","Texo");
