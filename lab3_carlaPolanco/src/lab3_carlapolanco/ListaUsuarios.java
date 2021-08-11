@@ -14,10 +14,10 @@ import java.util.List;
  */
 public class ListaUsuarios {
     
-    private List <Usuario> listaUsuarios;
+    private ArrayList <Usuario> listaUsuarios;
     
     public ListaUsuarios(){
-        this.listaUsuarios = new ArrayList <Usuario>();
+        this.listaUsuarios = new ArrayList ();
     }
     
     public void agregarUsuario(Usuario newUsuario){
@@ -63,16 +63,16 @@ public class ListaUsuarios {
         return (0);           
     }
     
-    public void anadirPublicacionesCompartidas(List Dirigidos,int ID){
+    public void anadirPublicacionesCompartidas(List Dirigidos,Publicaciones Post){
        int i = this.listaUsuarios.size();
        int j = Dirigidos.size();
        int k,l;
        Usuario user;
-       for(k=0;k<j;j++){
+       for(k=0;k<j;k++){
            for(l=0;l<i;l++){
                user = this.listaUsuarios.get(l);
-               if(Dirigidos.get(k) == user.getNombre()){
-                   user.getPCcompartidas().add(ID);
+               if(Dirigidos.get(k).equals(user.getNombre())){
+                   user.getPCcompartidas().agregarPublicacion(Post);
                }
            }
        }
@@ -94,7 +94,7 @@ public class ListaUsuarios {
     
     public String setListaUsuariosString(){
         Usuario User;
-        String listaString = "\n----------Usuarios Registrados----------\n \n";
+        String listaString = "\n--------------------------------------- Usuarios Registrados ----------------------------------- \n\n";
         int i = this.listaUsuarios.size();
         for(int k = 0; k < i; k++){
             User = this.listaUsuarios.get(k);
@@ -102,4 +102,16 @@ public class ListaUsuarios {
         }
         return (listaString);
     }
+    
+    public String setListaUsuariosStringSeguidores(){
+        Usuario User;
+        String listaString = "\n                     ---------- Seguidores ----------\n \n";
+        int i = this.listaUsuarios.size();
+        for(int k = 0; k < i; k++){
+            User = this.listaUsuarios.get(k);
+            listaString = listaString + User.setUsuarioString();
+        }
+        return (listaString);
+    }
+    
 }

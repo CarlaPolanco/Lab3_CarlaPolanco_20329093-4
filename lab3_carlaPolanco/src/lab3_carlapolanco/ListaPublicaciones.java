@@ -6,17 +6,16 @@
 package lab3_carlapolanco;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author carla
  */
 public class ListaPublicaciones {
-    private List <Publicaciones> listaPublicaciones;
+    private ArrayList <Publicaciones> listaPublicaciones;
     
     public ListaPublicaciones(){
-        this.listaPublicaciones = new ArrayList <Publicaciones>();
+        this.listaPublicaciones = new ArrayList();
     }
     public int tamanioLista(){
         return(this.listaPublicaciones.size());
@@ -28,7 +27,19 @@ public class ListaPublicaciones {
     
     public String setListaPublicacionesString(){
         Publicaciones Publicacion;
-        String listaString = "\n----------Publicaciones Registrados----------\n \n";
+        String listaString = "\n            ---------- Publicaciones Usuario ----------\n \n";
+        int i = this.listaPublicaciones.size();
+        for(int k = 0; k < i; k++){
+            Publicacion = this.listaPublicaciones.get(k);
+            listaString = listaString + Publicacion.PublicacionestoString();
+        }
+        return (listaString);
+    }
+    
+    
+    public String setListaPublicacionesStringCompartidas(){
+        Publicaciones Publicacion;
+        String listaString = "\n            --------- Publicaciones Compartidas Conmigo ----------\n \n";
         int i = this.listaPublicaciones.size();
         for(int k = 0; k < i; k++){
             Publicacion = this.listaPublicaciones.get(k);

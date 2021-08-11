@@ -151,24 +151,37 @@ public class Lab3_carlaPolanco {
                         System.out.println("-------------------------------------");
                     }
                     else{
+                        // no puedo poner mi mismo nombre.
+                        Scanner use = new Scanner(System.in);
                         while(m < cantidadU){
                             System.out.println("Ingrese el nombre del usuario");
-                            Scanner use = new Scanner(System.in);
                             String usuario = use.nextLine(); 
                             if(failbook.getredSocial().getListaUsuarios().existeUsuario(usuario) == 1){
-                                Dirigidos.add(usuario);
-                                m=m+1;
+                                System.out.println(" ACTIVO " + failbook.getredSocial().getListaUsuarioActivo().getNombre() + " INGRESADO: " + usuario);
+                                if(failbook.getredSocial().getListaUsuarioActivo().getNombre() == usuario){
+                                    System.out.println("--------------------------------------------------------");
+                                    System.out.println("    No puede ingresar su mismo nombre de usuario.");
+                                    System.out.println("--------------------------------------------------------");
+                                    
+                                }
+                                else{
+                                    Dirigidos.add(usuario);
+                                    m=m+1;
+                                    
+                                }
+                                
                             }
                             else{
                                 System.out.println("--------------------------------------------------------");
                                 System.out.println("  No existe usuario con ese nombre, intente otra vez");
                                 System.out.println("--------------------------------------------------------");
                             } 
+                        }
                         failbook.post(tipoP, contenido, Dirigidos);
                         System.out.println("-------------------------------------");
                         System.out.println("  Publicacion realizada con exito");
                         System.out.println("-------------------------------------");
-                        }
+                        
                     }
                     break;
                     

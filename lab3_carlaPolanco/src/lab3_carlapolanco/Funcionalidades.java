@@ -76,14 +76,14 @@ public class Funcionalidades {
         }
     }
     
+    
     public void post(String tipoP, String Contenido, List Dirigidos){
         if(socialRed.getListaUsuarioActivo()!= null){
             Publicaciones post;
             int tamaño = socialRed.getListaPublicaciones().tamanioLista();
             post = new Publicaciones(tamaño+1,socialRed.getListaUsuarioActivo().getNombre(),Contenido,tipoP);
             socialRed.getListaPublicaciones().agregarPublicacion(post);
-            socialRed.getListaUsuarios().anadirPublicacionAutor(post, socialRed.getListaUsuarioActivo().getNombre());
-            socialRed.getListaUsuarios().anadirPublicacionesCompartidas(Dirigidos, tamaño+1);
+            socialRed.getListaUsuarios().anadirPublicacionesCompartidas(Dirigidos, post);
         }
         else{
             System.out.println("--------------------------------------------");

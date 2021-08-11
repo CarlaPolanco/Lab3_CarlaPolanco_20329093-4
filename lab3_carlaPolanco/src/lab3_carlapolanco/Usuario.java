@@ -19,8 +19,8 @@ public class Usuario {
     private String contrasena;
     private Date fecha;
     private ListaPublicaciones publicaciones;
-    private List<String> seguidores;
-    private List<Integer> PCcompartidas;
+    private ListaUsuarios seguidores;
+    private ListaPublicaciones PCcompartidas;
     
     
     public Usuario(int id, String nombre,String contrasena){
@@ -29,8 +29,8 @@ public class Usuario {
         this.contrasena = contrasena;
         this.fecha = new Date();
         this.publicaciones = new ListaPublicaciones();
-        this.seguidores = new ArrayList<>();
-        this.PCcompartidas = new ArrayList<>();
+        this.seguidores = new ListaUsuarios();
+        this.PCcompartidas = new ListaPublicaciones();
     }
     public int getID(){
         return(this.id);
@@ -44,11 +44,11 @@ public class Usuario {
     public ListaPublicaciones getPublicaciones(){
         return(this.publicaciones);
     }
-    public List getSeguidores(){
+    public ListaUsuarios getSeguidores(){
         return(this.seguidores);
     }
     
-    public List getPCcompartidas(){
+    public ListaPublicaciones getPCcompartidas(){
         return(this.PCcompartidas);
     }
 
@@ -57,7 +57,7 @@ public class Usuario {
     }
 
     public String setUsuarioString(){
-        return "ID: " + id + " FECHA: " + fecha +  " NOMBRE: " + nombre + " CONTRASEÑA: " + contrasena + " PUBLICACIONES: " + publicaciones + " SEGUIDORES: " + seguidores + " PUBLICACIONES COMPARTIDAS CONMIGO: " + PCcompartidas + '\n';
+        return "ID: " + id + " FECHA: " + fecha +  " NOMBRE: " + nombre + " CONTRASEÑA: " + contrasena  + this.publicaciones.setListaPublicacionesString() + this.seguidores.setListaUsuariosStringSeguidores()+ this.PCcompartidas.setListaPublicacionesStringCompartidas() + '\n';
     }
     
     
