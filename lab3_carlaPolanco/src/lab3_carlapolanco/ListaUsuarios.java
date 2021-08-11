@@ -63,7 +63,21 @@ public class ListaUsuarios {
         return (0);           
     }
     
-    public void anadirPublicacionesCompartidas(List Dirigidos,Publicaciones Post){
+    public void anadirPublicacionesLista(List Dirigidos,Publicaciones Post){
+       int i = this.listaUsuarios.size();
+       int j = Dirigidos.size();
+       int k,l;
+       Usuario user;
+       for(k=0;k<j;k++){
+           for(l=0;l<i;l++){
+               user = this.listaUsuarios.get(l);
+               if(Dirigidos.get(k).equals(user.getNombre())){
+                   user.getPublicaciones().agregarPublicacion(Post);
+               }
+           }
+       }
+    }
+    public void anadirPublicacionesListaShare(List Dirigidos,Publicaciones Post){
        int i = this.listaUsuarios.size();
        int j = Dirigidos.size();
        int k,l;
@@ -90,7 +104,18 @@ public class ListaUsuarios {
         }
     }
     
-    
+    public void seguir(String UsuarioSeguir,Usuario UsuarioA){
+        Usuario user, userSeguir;
+        int i = this.listaUsuarios.size();
+        int j;
+        for(j=0; j<i ; j++){
+            user = this.listaUsuarios.get(j);
+            if(user.getNombre().equals(UsuarioSeguir)){
+                user.getSeguidores().agregarUsuario(UsuarioA);
+                
+            }
+        }
+    }
     
     public String setListaUsuariosString(){
         Usuario User;

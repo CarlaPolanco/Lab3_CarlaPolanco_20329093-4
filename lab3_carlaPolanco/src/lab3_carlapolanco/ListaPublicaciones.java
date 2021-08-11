@@ -25,6 +25,20 @@ public class ListaPublicaciones {
         this.listaPublicaciones.add(newPublicacion);
     }
     
+    public Publicaciones datosPublicacion(int id){
+        Publicaciones post;
+        int i = this.listaPublicaciones.size();
+        int j;
+        for(j=0 ; j<i; j++){
+            post = this.listaPublicaciones.get(j);
+            // POSIBLE ERROR NO OCUPAR EQUALS PERO NO ME LO SUGERIA :(
+            if(post.getIDP() == id){
+                return(post);
+            } 
+        }
+        return (null); 
+    }
+    
     public String setListaPublicacionesString(){
         Publicaciones Publicacion;
         String listaString = "\n            ---------- Publicaciones Usuario ----------\n \n";

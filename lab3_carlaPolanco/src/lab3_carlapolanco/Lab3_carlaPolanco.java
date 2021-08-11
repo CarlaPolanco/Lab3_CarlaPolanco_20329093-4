@@ -151,7 +151,7 @@ public class Lab3_carlaPolanco {
                         System.out.println("-------------------------------------");
                     }
                     else{
-                        // no puedo poner mi mismo nombre.
+                        // no puedo poner mi mismo nombre. SOLUCIONARLOOOOOOOOOO 
                         Scanner use = new Scanner(System.in);
                         while(m < cantidadU){
                             System.out.println("Ingrese el nombre del usuario");
@@ -186,10 +186,53 @@ public class Lab3_carlaPolanco {
                     break;
                     
                 case 2:
-                    System.out.println("Opcion 2");
+                    boolean q = true;
+                    Scanner use = new Scanner(System.in);
+                    while(q==true){
+                        System.out.println("Ingrese el nombre del usuario a seguir");
+                        String usuario = use.nextLine();
+                        if(failbook.getredSocial().getListaUsuarios().existeUsuario(usuario) == 1){
+                            failbook.follow(usuario);
+                            q=false;
+                        }
+                        else{
+                            System.out.println("--------------------------------------------------------");
+                            System.out.println("  No existe usuario con ese nombre, intente otra vez");
+                            System.out.println("--------------------------------------------------------");
+                        }
+                        
+                    }
+                    
                     break;
                 case 3:
-                    System.out.println("Opcion 3");
+                    int userP,i=0,idP;
+                    String stringM;
+                    List<String> UserPostD = new ArrayList<>();
+                    
+                    stringM = failbook.getredSocial().ToStringRedSocialPublicaciones();
+                    System.out.println(stringM);
+                    
+                    System.out.println("Ingrese el ID de la publicacion que desea compartir: ");
+                    idP=Integer.parseInt(teclado.next());
+                    
+                    System.out.println("Ingrese la cantidad de personas que va dirigida la publicacion");
+                    userP=Integer.parseInt(teclado.next());
+                    
+                    Scanner user = new Scanner(System.in);
+                    while(i<userP){
+                        System.out.println("Ingrese el nombre del usuario");
+                        String usuario = user.nextLine();
+                        UserPostD.add(usuario);
+                        i=i+1;
+                    }
+                    
+                    failbook.share(idP, UserPostD);
+                    
+                    System.out.println("-------------------------------------------");
+                    System.out.println("  Se compartio con exito la publicacion");
+                    System.out.println("-------------------------------------------");
+                    
+                   
                     break;
                 case 4:
                     String string,string2;

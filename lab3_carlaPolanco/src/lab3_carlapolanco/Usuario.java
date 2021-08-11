@@ -57,7 +57,7 @@ public class Usuario {
     }
 
     public String setUsuarioString(){
-        return "ID: " + id + " FECHA: " + fecha +  " NOMBRE: " + nombre + " CONTRASEÑA: " + contrasena  + this.publicaciones.setListaPublicacionesString() + this.seguidores.setListaUsuariosStringSeguidores()+ this.PCcompartidas.setListaPublicacionesStringCompartidas() + '\n';
+        return "ID: " + id + " FECHA: " + fecha +  " NOMBRE: " + nombre + " CONTRASEÑA: " + contrasena  + this.publicaciones.setListaPublicacionesString() + this.seguidores.setListaUsuariosStringSeguidores()+ this.PCcompartidas.setListaPublicacionesStringCompartidas()+ '\n';
     }
     
     

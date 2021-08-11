@@ -122,5 +122,10 @@ public class redSocial {
         Publicaciones post10 = new Publicaciones(10,"user1","lo kero muxo","texto");
         this.listaPublicaciones.agregarPublicacion(post10);
         
+        this.listaUsuarios.seguir("user1", user5);
+        this.listaUsuarios.seguir("user1", user3);
+        this.listaUsuarios.seguir("user1", user4);
+        
+        //this.listaUsuarios.seguir("user4", user1);
     }  
 }

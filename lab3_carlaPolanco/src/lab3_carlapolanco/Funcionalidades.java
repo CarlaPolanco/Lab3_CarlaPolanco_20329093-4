@@ -83,12 +83,49 @@ public class Funcionalidades {
             int tamaño = socialRed.getListaPublicaciones().tamanioLista();
             post = new Publicaciones(tamaño+1,socialRed.getListaUsuarioActivo().getNombre(),Contenido,tipoP);
             socialRed.getListaPublicaciones().agregarPublicacion(post);
-            socialRed.getListaUsuarios().anadirPublicacionesCompartidas(Dirigidos, post);
+            socialRed.getListaUsuarios().anadirPublicacionesLista(Dirigidos, post);
         }
         else{
             System.out.println("--------------------------------------------");
             System.out.println("  No existe usuario con sesion iniciada");
             System.out.println("--------------------------------------------");
         }
+    }
+    public void follow(String UsuarioSeguir){
+        Usuario userA;
+        userA = socialRed.getListaUsuarios().datosUsuario(socialRed.getListaUsuarioActivo().getNombre(), socialRed.getListaUsuarioActivo().getContrasena());
+        if(socialRed.getListaUsuarioActivo()!= null){
+            // ESTE IF NO ME FUNCIONAAAAAAAA
+            if(socialRed.getListaUsuarioActivo().getNombre()!= UsuarioSeguir){
+                socialRed.getListaUsuarios().seguir(UsuarioSeguir,userA);
+                System.out.println("-------------------------------");
+                System.out.println("  Usuario seguido con exito");
+                System.out.println("--------------------------------");
+            }
+            else{
+                System.out.println("--------------------------------------------");
+                System.out.println("  No se puede seguir a usted mismo");
+                System.out.println("--------------------------------------------");
+            }
+        }
+        else{
+            System.out.println("--------------------------------------------");
+            System.out.println("  No existe usuario con sesion iniciada");
+            System.out.println("--------------------------------------------"); 
+        }
+    }
+    
+    public void share(int idP,List UsuariosC){
+        if(socialRed.getListaUsuarioActivo()!= null){
+            Publicaciones post;
+            post = socialRed.getListaPublicaciones().datosPublicacion(idP);
+            socialRed.getListaUsuarios().anadirPublicacionesListaShare(UsuariosC, post);
+        }
+        else{
+            System.out.println("--------------------------------------------");
+            System.out.println("  No existe usuario con sesion iniciada");
+            System.out.println("--------------------------------------------");
+        }
+        
     }
 }
