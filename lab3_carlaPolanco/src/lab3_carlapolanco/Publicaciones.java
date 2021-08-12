@@ -53,9 +53,17 @@ public class Publicaciones {
     public List getReaccionesP(){
         return(this.reacciones);
     }
-
+    /*
+     * @return String con los datos de una publicacion
+     * Metodo que convierte los datos de una publicacion a string
+     */
     public String PublicacionestoString() {
-        return "ID: " + id + " AUTOR: " + autor + " CONTENIDO: " + contenido + " TIPO: " + tipoP + " FECHA: " + fechaP + " COMPARTIDO:" + this.usuarioCompartido.setListaUsuariosStringCompartido() + " REACCIONES: " + this.reacciones.size() + '\n';
+        return "ID: " + id + 
+                " AUTOR: " + autor +
+                " CONTENIDO: " + contenido + 
+                " TIPO: " + tipoP + " FECHA: " + fechaP + 
+                " COMPARTIDO:" + this.usuarioCompartido.setListaUsuariosStringCompartido() + 
+                " REACCIONES: " + this.reacciones.size() + '\n';
     }
     
     

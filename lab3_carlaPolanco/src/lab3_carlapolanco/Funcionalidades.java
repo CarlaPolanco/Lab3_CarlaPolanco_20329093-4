@@ -23,7 +23,9 @@ public class Funcionalidades {
     }
     
     /*
-     * Crea el usuario para registarlo 
+     * @param usermane\\pertenece al nombre del usuario
+     * @param pass \\pertenece la contrasena del usuario 
+     * Metodo que permite a un usuario registrarse 
      */
     public void register(String username,String pass){
         Usuario userN;
@@ -32,13 +34,21 @@ public class Funcionalidades {
         userN = new Usuario(tamanio+1,username,pass);
         socialRed.registar(userN);
     }
-    
+    /*
+     * @param usermane \\pertenece al nombre del usuario
+     * @param pass \\pertenece la contrasena del usuario 
+     * Metodo que permite a un usuario iniciar sesion
+     */
     public void login(String username, String pass){
         if(socialRed.getListaUsuarioActivo()==null){
             socialRed.iniciarsesion(username, pass);
         }
     }
-    
+    /*
+    * @param nombre \\pertenece al nombre del usuario
+    * @param contra \\pertenece la contrasena del usuario 
+    * Metodo que permite cerrar sesion 
+    */
     public void logout(String nombre, String Contra){
         if(socialRed.getListaUsuarioActivo()!= null){
             if(socialRed.getListaUsuarioActivo().getContrasena().equals(Contra) && socialRed.getListaUsuarioActivo().getNombre().equals(nombre)){
@@ -59,7 +69,11 @@ public class Funcionalidades {
             System.out.println("--------------------------------------------");
         }
     }
-    
+    /*
+     * @param tipoP \\pertenece al tipo de publicacion
+     * @param contenido \\ contenido de la publicaicon
+     * Metodo que permite realizar una publicacion
+     */
     public void post(String tipoP, String Contenido){
         if(socialRed.getListaUsuarioActivo()!= null){
             Publicaciones post;
@@ -76,7 +90,12 @@ public class Funcionalidades {
         }
     }
     
-    
+    /*
+     * @param tipoP \\pertenece al tipo de publicacion
+     * @param contenido \\ contenido de la publicaicon
+     * @param Dirigido \\ Lista con los usuarios que va dirigida la publicacion
+     * Metodo que permite realizar una publicacion citando a algunos usuarios
+     */
     public void post(String tipoP, String Contenido, List Dirigidos){
         if(socialRed.getListaUsuarioActivo()!= null){
             Publicaciones post;
@@ -91,6 +110,10 @@ public class Funcionalidades {
             System.out.println("--------------------------------------------");
         }
     }
+    /*
+     * @param UsuarioSeguir // pertenece al nombre del usaurio para seguir
+     * Metodo que permite realizar follow a un usuario
+     */
     public void follow(String UsuarioSeguir){
         Usuario userA;
         if(socialRed.getListaUsuarioActivo()!= null){
@@ -113,7 +136,11 @@ public class Funcionalidades {
             System.out.println("--------------------------------------------"); 
         }
     }
-    
+    /*
+     * @param idP // pertenece al id de una publicacion
+     * @param UsuariosC // pertenece al nombre de los usaurios para seguir
+     * Metodo que permite compartir una publicacion
+     */
     public void share(int idP,List UsuariosC){
         if(socialRed.getListaUsuarioActivo()!= null){
             Publicaciones post;

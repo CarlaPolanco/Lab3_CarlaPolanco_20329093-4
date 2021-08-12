@@ -41,16 +41,26 @@ public class redSocial {
     }
     public void exit(){
         this.listaUsuarioActivo = null;
-    }
-    
-    
-    
+    }   
+    /*
+     * @return numero entero
+     * Metodo que devuelve la cantidad de usuarios
+     */
     public int getTamanioUsuarios(){
         return(this.listaUsuarios.tamanioLista());
     }
+    /*
+     * @param userN // usuario para añadir a la clase lista de usuario
+     * Metodo que devuelve la cantidad de usuarios
+     */
     public void registar(Usuario userN){
         this.listaUsuarios.agregarUsuario(userN);
     }
+    /*
+     * @param name // String con el nombre del usuario
+     * @return numero entero
+     * Metodo complementario para verificar la existencia de un usuario
+     */
     public int verificarUsuario(String name){
         if(this.listaUsuarios.existeUsuario(name)==1){
             return(1);
@@ -59,7 +69,11 @@ public class redSocial {
             return(0);
         }
     }
-    
+    /*
+     * @param nombre //nombre del usuario
+     * @return numero entero
+     * Metodo que verifica si existe el nombre ingresado.
+     */
     public int verificarUsuariologin(String username, String pass){
         if(this.listaUsuarios.existeUsuarioLogin(username, pass) == 1){
             return(1);
@@ -68,26 +82,45 @@ public class redSocial {
             return(0);
         }
     }
-    
+    /*
+     * @param username //nombre del usuario
+     * @param pass // contraseña del usuario
+     * Metodo que inicia sesion rellenando clase usuario activo
+     */
     public void iniciarsesion(String username,String pass){
         this.listaUsuarioActivo =  this.listaUsuarios.datosUsuario(username, pass); 
     }
-    
+    /*
+     * @return String con los datos de los usuarios
+     * Metodo que convierte los datos de los usuarios a string
+     */
     public String ToStringRedSocialUsuarios(){
         String string;
         string = this.listaUsuarios.setListaUsuariosString();
-        return string;
-        
+        return string;   
     }
+    
+    /*
+     * @return String con los datos del usuario activo
+     * Metodo que convierte los datos del usuarios activo  a string
+     */
+    public String ToStringRedSocialUsuariosA(){
+        String string;
+        string = this.listaUsuarioActivo.setUsuarioAString();
+        return string;  
+    }
+    /*
+     * @return String con los datos del las publicaciones
+     * Metodo que convierte los datos de las publicaciones a string
+     */
     public String ToStringRedSocialPublicaciones(){
         String string;
         string = this.listaPublicaciones.setListaPublicacionesStringRedSocial();
         return string;
-    }
-    
-    
-    
-    
+    }    
+    /*
+     * Metodo que inicializa la red social con usuarios publicaciones y follow
+     */
     public void redSocial(){
         
         Usuario user1 = new Usuario(1,"user1","pass1");

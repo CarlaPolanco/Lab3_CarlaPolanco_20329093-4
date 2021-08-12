@@ -52,17 +52,34 @@ public class Usuario {
     public ListaPublicaciones getPCcompartidas(){
         return(this.PCcompartidas);
     }
-
+    
     public Date getFecha() {
         return fecha;
     }
-
+    
+    /*
+     * @return String con los datos de un usuario
+     * Metodo que convierte los datos de un usuario a string
+     */
     public String setUsuarioString(){
         return ("\n***** Usuario " + id +" ******* \n"
                 + "ID: " + id +
                 " FECHA: " + fecha + 
                 " NOMBRE: " + nombre + 
-                " CONTRASEÑA: " + contrasena +
+                " CONTRASEÑA: ******** " +
+                this.publicaciones.setListaPublicacionesString() + 
+                this.seguidores.setListaUsuariosStringSeguidores()+ 
+                this.PCcompartidas.setListaPublicacionesStringCompartidas()+ '\n');
+    }
+    /*
+     * @return String con los datos de un usuario activo
+     * Metodo que convierte los datos de un usuario activo a string
+     */
+    public String setUsuarioAString(){
+        return ( "ID: " + id +
+                " FECHA: " + fecha + 
+                " NOMBRE: " + nombre + 
+                " CONTRASEÑA: ******** " +
                 this.publicaciones.setListaPublicacionesString() + 
                 this.seguidores.setListaUsuariosStringSeguidores()+ 
                 this.PCcompartidas.setListaPublicacionesStringCompartidas()+ '\n');

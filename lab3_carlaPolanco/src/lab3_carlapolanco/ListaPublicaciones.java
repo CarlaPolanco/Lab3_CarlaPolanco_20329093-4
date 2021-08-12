@@ -21,11 +21,18 @@ public class ListaPublicaciones {
     public int tamanioLista(){
         return(this.listaPublicaciones.size());
     }
-    
+    /* 
+     * @param newPublicacion // publicacion
+     * Metodo que añade una publicacion a la lista de Publicaciones
+     */
     public void agregarPublicacion(Publicaciones newPublicacion){
         this.listaPublicaciones.add(newPublicacion);
     }
-    
+    /* 
+     * @param id // identidicador de una publicacion
+     * @return publicacion
+     * Metodo que a partir de un identificador retorna todos los datos de esta publicacion
+     */
     public Publicaciones datosPublicacion(int id){
         Publicaciones post;
         int i = this.listaPublicaciones.size();
@@ -38,7 +45,11 @@ public class ListaPublicaciones {
         }
         return (null); 
     }
-    
+    /* 
+     * @param user // usuario
+     * @param postE // publicacion en donde se añade
+     * Metodo que añade el nombre de un usuario a la lista de compartido
+     */
     public void editarPublicacionesCompartidas(Usuario user, Publicaciones postE){
         Publicaciones post;
         int i = this.listaPublicaciones.size();
@@ -50,7 +61,10 @@ public class ListaPublicaciones {
             } 
         }
     }
-    
+    /*
+     * @return String con los datos de la lista de publicaciones
+     * Metodo que convierte las publicaciones de un usuario a string
+     */
     public String setListaPublicacionesString(){
         Publicaciones Publicacion;
         String listaString = " PUBLICACIONES DEL USUARIO: ";
@@ -61,7 +75,10 @@ public class ListaPublicaciones {
         }
         return (listaString);
     }
-    
+    /*
+     * @return String con los datos de la lista de publicaciones
+     * Metodo que convierte las publicaciones  a string
+     */
     public String setListaPublicacionesStringRedSocial(){
         Publicaciones Publicacion;
         String listaString = "------------------------------- PUBLICACIONES ------------------------------------ \n";
@@ -73,7 +90,10 @@ public class ListaPublicaciones {
         return (listaString);
     }
     
-    
+    /*
+     * @return String con los datos de la lista de publicacionesCompartidas
+     * Metodo que convierte las publicacionesCompartidas de un usuario a string
+     */
     public String setListaPublicacionesStringCompartidas(){
         Publicaciones Publicacion;
         String listaString = " PUBLICACIONES COMPARTIDAS CONMIGO: ";

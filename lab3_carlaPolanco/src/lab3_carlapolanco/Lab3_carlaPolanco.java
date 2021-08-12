@@ -121,7 +121,7 @@ public class Lab3_carlaPolanco {
             System.out.println("   1. Realizar una publicacion.");
             System.out.println("   2. Seguir a un usuario.");
             System.out.println("   3. Compartir una publicacion.");
-            System.out.println("   4. Visualizar red social.");
+            System.out.println("   4. Visualizar datos del usuario activo.");
             System.out.println("   5. Cerrar sesion.");
             System.out.println("   6. Salir del programa.");
             System.out.println("Introduzca su opcion:");
@@ -129,7 +129,7 @@ public class Lab3_carlaPolanco {
             
             switch (opcion){
                 case 1:
-                    List<String> Dirigidos = new ArrayList<String>();
+                    List<String> Dirigidos = new ArrayList<>();
                     int m=0;
                     int cantidadU;
                     
@@ -152,7 +152,7 @@ public class Lab3_carlaPolanco {
                         System.out.println("-------------------------------------");
                     }
                     else{
-                        // no puedo poner mi mismo nombre. SOLUCIONARLOOOOOOOOOO 
+                        
                         Scanner use = new Scanner(System.in);
                         while(m < cantidadU){
                             System.out.println("Ingrese el nombre del usuario");
@@ -235,12 +235,18 @@ public class Lab3_carlaPolanco {
                    
                     break;
                 case 4:
-                    String string,string2;
-                    string = failbook.getredSocial().ToStringRedSocialUsuarios();
-                    string2 = failbook.getredSocial().ToStringRedSocialPublicaciones();
-                    System.out.println("----------- Bienvenidos a  " + failbook.getredSocial().getNombreRsocial()+ "---------");
-                    System.out.println(string);
-                    System.out.println(string2);
+                    String usuarioString;
+                    if(failbook.getredSocial().getListaUsuarioActivo() != null){
+                        System.out.println(" ******* DATOS DEL USUARIO ACTIVO ********* ");
+                        usuarioString = failbook.getredSocial().ToStringRedSocialUsuariosA();
+                        System.out.println(usuarioString);
+                    }
+                    else{
+                        System.out.println("-----------------------");
+                        System.out.println("  Sesion No iniciada");
+                        System.out.println("-----------------------");
+                    }
+                    
                     break;
                 case 5:
                     System.out.println("Ingrese nombre de usuario:");
@@ -250,8 +256,7 @@ public class Lab3_carlaPolanco {
                     Scanner cont = new Scanner(System.in);
                     String contraseña = cont.nextLine(); 
                     if ((failbook.getredSocial().getListaUsuarioActivo().getNombre().equals(nombre)) && failbook.getredSocial().getListaUsuarioActivo().getContrasena().equals(contraseña)){
-                        failbook.logout(nombre, contraseña);
-                        
+                        failbook.logout(nombre, contraseña);  
                         opcion2=0;
                         while(opcion2==0){
                             System.out.println(" *********** BIENVENIDO ************");
@@ -313,6 +318,7 @@ public class Lab3_carlaPolanco {
                                     }   opcion2=1;
                                     break;
                                 case 3:
+                                    String string, string2;
                                     string = failbook.getredSocial().ToStringRedSocialUsuarios();
                                     string2 = failbook.getredSocial().ToStringRedSocialPublicaciones();
                                     System.out.println("----------- Bienvenidos a  " + failbook.getredSocial().getNombreRsocial()+ "---------");
