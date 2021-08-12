@@ -19,7 +19,7 @@ public class Publicaciones {
     private String contenido;
     private String tipoP;
     private Date fechaP;
-    private List<String> usuarioCompartido;
+    private ListaUsuarios usuarioCompartido;
     private List<String> reacciones;
     
     public Publicaciones(int id, String autor,String contenido, String tipoP){
@@ -28,7 +28,7 @@ public class Publicaciones {
         this.contenido = contenido;
         this.tipoP = tipoP;
         this.fechaP =  new Date();
-        this.usuarioCompartido = new ArrayList<>();
+        this.usuarioCompartido = new ListaUsuarios();
         this.reacciones = new ArrayList<>();
     }
     
@@ -47,7 +47,7 @@ public class Publicaciones {
     public Date getFechaP(){
         return(this.fechaP);
     }
-    public List getUsuarioCompartidoP(){
+    public ListaUsuarios getUsuarioCompartidoP(){
         return(this.usuarioCompartido);
     }
     public List getReaccionesP(){
@@ -55,7 +55,7 @@ public class Publicaciones {
     }
 
     public String PublicacionestoString() {
-        return "ID: " + id + " AUTOR: " + autor + " CONTENIDO: " + contenido + " TIPO: " + tipoP + " FECHA: " + fechaP + " COMPARTIDO" + usuarioCompartido + " REACCIONES: " + reacciones + '\n';
+        return "ID: " + id + " AUTOR: " + autor + " CONTENIDO: " + contenido + " TIPO: " + tipoP + " FECHA: " + fechaP + " COMPARTIDO:" + this.usuarioCompartido.setListaUsuariosStringCompartido() + " REACCIONES: " + this.reacciones.size() + '\n';
     }
     
     

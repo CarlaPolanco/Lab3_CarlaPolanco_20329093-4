@@ -14,7 +14,7 @@ import java.util.List;
 public class redSocial {
     private String NombreRsocial;
     private Usuario listaUsuarioActivo;
-    private ListaUsuarios listaUsuarios;
+    ListaUsuarios listaUsuarios;
     private ListaPublicaciones listaPublicaciones;
     
     public redSocial(){
@@ -81,7 +81,7 @@ public class redSocial {
     }
     public String ToStringRedSocialPublicaciones(){
         String string;
-        string = this.listaPublicaciones.setListaPublicacionesString();
+        string = this.listaPublicaciones.setListaPublicacionesStringRedSocial();
         return string;
     }
     
@@ -126,6 +126,6 @@ public class redSocial {
         this.listaUsuarios.seguir("user1", user3);
         this.listaUsuarios.seguir("user1", user4);
         
-        //this.listaUsuarios.seguir("user4", user1);
+        this.listaUsuarios.seguir("user4", user1);
     }  
 }

@@ -57,16 +57,15 @@ public class Lab3_carlaPolanco {
                         k=1;
                         System.out.println("**********************************");
                         System.out.println("  Sesion iniciada correctamente");
-                        System.out.println("**********************************");
+                        System.out.println("**********************************\n");
                         
                     }
                     else{
-                        System.out.println("Datos incorrectos,vuelva a escribirlos");
+                        System.out.println("------------------------------------------");
+                        System.out.println("  Datos incorrectos,vuelva a escribirlos");
+                        System.out.println("------------------------------------------");
                     }
                 }
-                
-                
-                
                 opcion2=1;
             }
             else if(respuesta == 2){
@@ -102,7 +101,7 @@ public class Lab3_carlaPolanco {
                 String string,string2;
                 string = failbook.getredSocial().ToStringRedSocialUsuarios();
                 string2 = failbook.getredSocial().ToStringRedSocialPublicaciones();
-                System.out.println("----------- Bienvenidos a  " + failbook.getredSocial().getNombreRsocial()+ "---------");
+                System.out.println(" *************************************** Bienvenidos a  " + failbook.getredSocial().getNombreRsocial()+ "**************************************");
                 System.out.println(string);
                 System.out.println(string2);
             }
@@ -112,8 +111,10 @@ public class Lab3_carlaPolanco {
             }
         }
         
+        System.out.println("------------------------------");
         System.out.println(" ### RED SOCIAL: " + failbook.getredSocial().getNombreRsocial());
         System.out.println(" ## Registrado como: " + failbook.getredSocial().getListaUsuarioActivo().getNombre() );
+        System.out.println("------------------------------");
         
         do{
             System.out.println("Escoja su opcion:");
@@ -157,8 +158,7 @@ public class Lab3_carlaPolanco {
                             System.out.println("Ingrese el nombre del usuario");
                             String usuario = use.nextLine(); 
                             if(failbook.getredSocial().getListaUsuarios().existeUsuario(usuario) == 1){
-                                System.out.println(" ACTIVO " + failbook.getredSocial().getListaUsuarioActivo().getNombre() + " INGRESADO: " + usuario);
-                                if(failbook.getredSocial().getListaUsuarioActivo().getNombre() == usuario){
+                                if(failbook.getredSocial().getListaUsuarioActivo().getNombre().equals(usuario)){
                                     System.out.println("--------------------------------------------------------");
                                     System.out.println("    No puede ingresar su mismo nombre de usuario.");
                                     System.out.println("--------------------------------------------------------");
@@ -251,12 +251,89 @@ public class Lab3_carlaPolanco {
                     String contraseña = cont.nextLine(); 
                     if ((failbook.getredSocial().getListaUsuarioActivo().getNombre().equals(nombre)) && failbook.getredSocial().getListaUsuarioActivo().getContrasena().equals(contraseña)){
                         failbook.logout(nombre, contraseña);
-                        opcion=6;
                         
+                        opcion2=0;
+                        while(opcion2==0){
+                            System.out.println(" *********** BIENVENIDO ************");
+                            System.out.println("    ¿Que desea hacer?");    
+                            System.out.println("   1. Inicial sesion.");
+                            System.out.println("   2. Registrarse.");
+                            System.out.println("   3. Visualizar red social");
+                            respuesta=Integer.parseInt(teclado.next());
+
+                            switch (respuesta) {
+                                case 1:
+                                    System.out.println("\n-----------------------");
+                                    System.out.println(" Eligio iniciar sesion");
+                                    System.out.println("-----------------------\n");
+                                    int k = 0;
+                                    while(k !=1){
+                                        System.out.println("Ingrese el nombre se usuario");
+                                        nombre = nom.nextLine();
+                                        System.out.println("Ingrese la contraseña: ");
+                                        
+                                        contraseña = cont.nextLine();
+                                        
+                                        if(failbook.getredSocial().verificarUsuariologin(nombre, contraseña)==1){
+                                            
+                                            failbook.login(nombre, contraseña);
+                                            k=1;
+                                            System.out.println("**********************************");
+                                            System.out.println("  Sesion iniciada correctamente");
+                                            System.out.println("**********************************");
+                                            
+                                        }
+                                        else{
+                                            System.out.println("Datos incorrectos,vuelva a escribirlos");
+                                        }
+                                    }   opcion2=1;
+                                    break;
+                                case 2:
+                                    System.out.println("\n-----------------------");
+                                    System.out.println("   Eligio Registrarse");
+                                    System.out.println("-----------------------\n");
+                                    i = 0;
+                                    while(i!= 1){
+                                        System.out.println("Ingrese el nombre se usuario");
+                                        nombre = nom.nextLine();
+                                        
+                                        System.out.println("Ingrese la contraseña: ");
+                                        contraseña = cont.nextLine();
+                                        
+                                        if(failbook.getredSocial().verificarUsuario(nombre)==1){
+                                            System.out.println("Usuario ya exisente, eliga un nuevo nombre");
+                                        }
+                                        else{
+                                            failbook.register(nombre, contraseña);
+                                            System.out.println("********************************");
+                                            System.out.println(" Usuario registado con exito!");
+                                            System.out.println("********************************");
+                                            i=1;
+                                        }
+                                    }   opcion2=1;
+                                    break;
+                                case 3:
+                                    string = failbook.getredSocial().ToStringRedSocialUsuarios();
+                                    string2 = failbook.getredSocial().ToStringRedSocialPublicaciones();
+                                    System.out.println("----------- Bienvenidos a  " + failbook.getredSocial().getNombreRsocial()+ "---------");
+                                    System.out.println(string);
+                                    System.out.println(string2);
+                                    break;
+                                default:
+                                    System.out.println("Eleccion incorrecta.Vuelva a elegir una opcion: ");
+                                    break;
+                            }
+                        }    
                     }
                     else{
                         System.out.println("Datos Erroneos");
                     }
+                    break;
+                    
+                default:
+                    System.out.println("-----------------------------------------------------");
+                    System.out.println("  Eleccion incorrecta.Vuelva a elegir una opcion: ");
+                    System.out.println("-----------------------------------------------------");
                     break;
             }
         }while(opcion!=6);   

@@ -32,6 +32,7 @@ public class Usuario {
         this.seguidores = new ListaUsuarios();
         this.PCcompartidas = new ListaPublicaciones();
     }
+    
     public int getID(){
         return(this.id);
     }
@@ -57,7 +58,14 @@ public class Usuario {
     }
 
     public String setUsuarioString(){
-        return "ID: " + id + " FECHA: " + fecha +  " NOMBRE: " + nombre + " CONTRASEÑA: " + contrasena  + this.publicaciones.setListaPublicacionesString() + this.seguidores.setListaUsuariosStringSeguidores()+ this.PCcompartidas.setListaPublicacionesStringCompartidas()+ '\n';
+        return ("\n***** Usuario " + id +" ******* \n"
+                + "ID: " + id +
+                " FECHA: " + fecha + 
+                " NOMBRE: " + nombre + 
+                " CONTRASEÑA: " + contrasena +
+                this.publicaciones.setListaPublicacionesString() + 
+                this.seguidores.setListaUsuariosStringSeguidores()+ 
+                this.PCcompartidas.setListaPublicacionesStringCompartidas()+ '\n');
     }
     
     

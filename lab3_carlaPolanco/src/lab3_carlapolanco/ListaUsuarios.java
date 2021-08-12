@@ -38,6 +38,18 @@ public class ListaUsuarios {
         }
         return (null); 
     }
+    public Usuario datosUsuario(String username){
+        Usuario user;
+        int i = this.listaUsuarios.size();
+        int j;
+        for(j=0 ; j<i; j++){
+            user = this.listaUsuarios.get(j);
+            if(user.getNombre().equals(username)){
+                return(user);
+            } 
+        }
+        return (null); 
+    }
     public int existeUsuarioLogin(String Nombre, String Contrasena){
         Usuario user;
         int i = this.listaUsuarios.size();
@@ -86,7 +98,7 @@ public class ListaUsuarios {
            for(l=0;l<i;l++){
                user = this.listaUsuarios.get(l);
                if(Dirigidos.get(k).equals(user.getNombre())){
-                   user.getPCcompartidas().agregarPublicacion(Post);
+                   user.getPCcompartidas().agregarPublicacion(Post);   
                }
            }
        }
@@ -105,14 +117,13 @@ public class ListaUsuarios {
     }
     
     public void seguir(String UsuarioSeguir,Usuario UsuarioA){
-        Usuario user, userSeguir;
+        Usuario user;
         int i = this.listaUsuarios.size();
         int j;
         for(j=0; j<i ; j++){
             user = this.listaUsuarios.get(j);
             if(user.getNombre().equals(UsuarioSeguir)){
-                user.getSeguidores().agregarUsuario(UsuarioA);
-                
+                user.getSeguidores().agregarUsuario(UsuarioA); 
             }
         }
     }
@@ -130,11 +141,22 @@ public class ListaUsuarios {
     
     public String setListaUsuariosStringSeguidores(){
         Usuario User;
-        String listaString = "\n                     ---------- Seguidores ----------\n \n";
+        String listaString = " SEGUIDORES: ";
         int i = this.listaUsuarios.size();
         for(int k = 0; k < i; k++){
             User = this.listaUsuarios.get(k);
-            listaString = listaString + User.setUsuarioString();
+            listaString = listaString + User.getNombre() + " ";
+        }
+        return (listaString);
+    }
+    
+    public String setListaUsuariosStringCompartido(){
+        Usuario User;
+        String listaString = " ";
+        int i = this.listaUsuarios.size();
+        for(int k = 0; k < i; k++){
+            User = this.listaUsuarios.get(k);
+            listaString = listaString + User.getNombre() + " ";
         }
         return (listaString);
     }

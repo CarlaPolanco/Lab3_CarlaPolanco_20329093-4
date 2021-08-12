@@ -93,10 +93,9 @@ public class Funcionalidades {
     }
     public void follow(String UsuarioSeguir){
         Usuario userA;
-        userA = socialRed.getListaUsuarios().datosUsuario(socialRed.getListaUsuarioActivo().getNombre(), socialRed.getListaUsuarioActivo().getContrasena());
         if(socialRed.getListaUsuarioActivo()!= null){
-            // ESTE IF NO ME FUNCIONAAAAAAAA
-            if(socialRed.getListaUsuarioActivo().getNombre()!= UsuarioSeguir){
+            userA = socialRed.getListaUsuarios().datosUsuario(socialRed.getListaUsuarioActivo().getNombre(), socialRed.getListaUsuarioActivo().getContrasena());
+            if(!socialRed.getListaUsuarioActivo().getNombre().equals(UsuarioSeguir)){
                 socialRed.getListaUsuarios().seguir(UsuarioSeguir,userA);
                 System.out.println("-------------------------------");
                 System.out.println("  Usuario seguido con exito");
@@ -118,8 +117,17 @@ public class Funcionalidades {
     public void share(int idP,List UsuariosC){
         if(socialRed.getListaUsuarioActivo()!= null){
             Publicaciones post;
+            Usuario user;
             post = socialRed.getListaPublicaciones().datosPublicacion(idP);
             socialRed.getListaUsuarios().anadirPublicacionesListaShare(UsuariosC, post);
+            
+            int i=0,j=UsuariosC.size();
+            
+            for(i=0;i<j;i++){
+                user = socialRed.getListaUsuarios().datosUsuario((String) UsuariosC.get(i));
+                post.getUsuarioCompartidoP().agregarUsuario(user);
+            }
+            
         }
         else{
             System.out.println("--------------------------------------------");
